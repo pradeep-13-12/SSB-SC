@@ -59,8 +59,8 @@ close;
 // Given parameters
 Am = 10.9;        // Message amplitude
 Ac = 21.8;        // Carrier amplitude
-Fm = 560;         // Message frequency (Hz)
-Fc = 5600;        // Carrier frequency (Hz)
+Fm = 570;         // Message frequency (Hz)
+Fc = 5700;        // Carrier frequency (Hz)
 Fs = 55000;       // Sampling frequency (Hz)
 
 // Time vector (5 ms duration)
@@ -116,13 +116,13 @@ end
 
 
 OUTPUT WAVEFORM
-<img width="1215" height="1104" alt="Screenshot 2025-11-06 105815" src="https://github.com/user-attachments/assets/77325534-9df2-426b-91b7-a45362f5bd9c" />
+
+<img width="1209" height="1112" alt="Screenshot 2025-11-06 113923" src="https://github.com/user-attachments/assets/81cf8340-06e5-4f36-9186-1a5b34c8be66" />
 
 
 TABULATION
 
-![WhatsApp Image 2025-11-06 at 11 00 04_1037065f](https://github.com/user-attachments/assets/359543af-3a1b-4af7-aa68-1235baf0ba8b)
-
+![WhatsApp Image 2025-11-06 at 11 00 06_de52b164](https://github.com/user-attachments/assets/ac75ec74-3722-43c0-b877-febb76353442)
 
 
 
