@@ -52,11 +52,76 @@ Model Waveform
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
 Program
+clc;
+clear;
+close;
+
+// Given parameters
+Am = 10.9;        // Message amplitude
+Ac = 21.8;        // Carrier amplitude
+Fm = 560;         // Message frequency (Hz)
+Fc = 5600;        // Carrier frequency (Hz)
+Fs = 55000;       // Sampling frequency (Hz)
+
+// Time vector (5 ms duration)
+t = 0:1/Fs:0.005;
+
+// Message signal
+m = Am * sin(2 * %pi * Fm * t);
+
+// Carrier signal
+c = Ac * sin(2 * %pi * Fc * t);
+
+// Hilbert transform of message signal (to obtain quadrature component)
+mh = imag(hilbert(m));
+
+// Generate SSB-SC signals
+s_usb = Ac * (m .* cos(2 * %pi * Fc * t) - mh .* sin(2 * %pi * Fc * t)); // Upper Sideband
+s_lsb = Ac * (m .* cos(2 * %pi * Fc * t) + mh .* sin(2 * %pi * Fc * t)); // Lower Sideband
+
+// Plot the signals
+subplot(4,1,1);
+plot(t, m);
+title('Message Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+xgrid();
+
+subplot(4,1,2);
+plot(t, c);
+title('Carrier Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+xgrid();
+
+subplot(4,1,3);
+plot(t, s_usb);
+title('SSB-SC Upper Sideband Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+xgrid();
+
+subplot(4,1,4);
+plot(t, s_lsb);
+title('SSB-SC Lower Sideband Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+xgrid();
+
+// Display sample values in table format
+disp("    Time(s)     Message(V)   Carrier(V)    USB(V)       LSB(V)");
+for i = 1:10:length(t)
+    mprintf("%10.6f %10.4f %10.4f %10.4f %10.4f\n", t(i), m(i), c(i), s_usb(i), s_lsb(i));
+end
+
 
 OUTPUT WAVEFORM
+<img width="1215" height="1104" alt="Screenshot 2025-11-06 105815" src="https://github.com/user-attachments/assets/77325534-9df2-426b-91b7-a45362f5bd9c" />
+
 
 TABULATION
 
+![WhatsApp Image 2025-11-06 at 11 00 04_1037065f](https://github.com/user-attachments/assets/359543af-3a1b-4af7-aa68-1235baf0ba8b)
 
 
 
