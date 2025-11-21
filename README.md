@@ -52,6 +52,7 @@ Model Waveform
 <img width="706" height="167" alt="image" src="https://github.com/user-attachments/assets/bff0d8fd-d679-444e-af37-0b34585853c1" />
 
 Program
+```
 clc;
 clear;
 close;
@@ -113,7 +114,7 @@ disp("    Time(s)     Message(V)   Carrier(V)    USB(V)       LSB(V)");
 for i = 1:10:length(t)
     mprintf("%10.6f %10.4f %10.4f %10.4f %10.4f\n", t(i), m(i), c(i), s_usb(i), s_lsb(i));
 end
-
+```
 
 OUTPUT WAVEFORM
 
